@@ -1,7 +1,7 @@
-diff --git a/kernel-open/nvidia/linux_nvswitch.c b/kernel-open-mod/nvidia/linux_nvswitch.c
+diff --git a/kernel-open/nvidia/linux_nvswitch.c b/kernel-open/nvidia/linux_nvswitch.c
 index 015de1c..f45efa0 100644
 --- a/kernel-open/nvidia/linux_nvswitch.c
-+++ b/kernel-open-mod/nvidia/linux_nvswitch.c
++++ b/kernel-open/nvidia/linux_nvswitch.c
 @@ -2059,7 +2059,7 @@ nvswitch_os_read_registry_dword
          return -NVL_ERR_GENERIC;
      }
@@ -36,10 +36,10 @@ index 015de1c..f45efa0 100644
  }
  
  int
-diff --git a/kernel-open/nvidia/os-interface.c b/kernel-open-mod/nvidia/os-interface.c
+diff --git a/kernel-open/nvidia/os-interface.c b/kernel-open/nvidia/os-interface.c
 index 3f3ccb7..0ea16a2 100644
 --- a/kernel-open/nvidia/os-interface.c
-+++ b/kernel-open-mod/nvidia/os-interface.c
++++ b/kernel-open/nvidia/os-interface.c
 @@ -758,11 +758,13 @@ NvU32 NV_API_CALL os_get_current_process(void)
      return current->tgid;
  }
@@ -57,10 +57,10 @@ index 3f3ccb7..0ea16a2 100644
      task_unlock(current);
  }
  
-diff --git a/kernel-open/nvidia-drm/nvidia-drm-conftest.h b/kernel-open-mod/nvidia-drm/nvidia-drm-conftest.h
+diff --git a/kernel-open/nvidia-drm/nvidia-drm-conftest.h b/kernel-open/nvidia-drm/nvidia-drm-conftest.h
 index dec3983..ab15be4 100644
 --- a/kernel-open/nvidia-drm/nvidia-drm-conftest.h
-+++ b/kernel-open-mod/nvidia-drm/nvidia-drm-conftest.h
++++ b/kernel-open/nvidia-drm/nvidia-drm-conftest.h
 @@ -85,6 +85,42 @@
  #define NV_DRM_FBDEV_AVAILABLE
  #define NV_DRM_CLIENT_AVAILABLE
@@ -104,10 +104,10 @@ index dec3983..ab15be4 100644
  #endif
  
  /*
-diff --git a/kernel-open/nvidia-modeset/nvidia-modeset-linux.c b/kernel-open-mod/nvidia-modeset/nvidia-modeset-linux.c
+diff --git a/kernel-open/nvidia-modeset/nvidia-modeset-linux.c b/kernel-open/nvidia-modeset/nvidia-modeset-linux.c
 index 96b9946..f3a7646 100644
 --- a/kernel-open/nvidia-modeset/nvidia-modeset-linux.c
-+++ b/kernel-open-mod/nvidia-modeset/nvidia-modeset-linux.c
++++ b/kernel-open/nvidia-modeset/nvidia-modeset-linux.c
 @@ -639,7 +639,20 @@ int nvkms_strcmp(const char *s1, const char *s2)
  
  char* nvkms_strncpy(char *dest, const char *src, size_t n)
@@ -117,7 +117,7 @@ index 96b9946..f3a7646 100644
 +     * F7FF PATCH:
 +     * strncpy() was removed from the kernel in 7.2; open-code it to
 +     * preserve its exact semantics (zero-pad to n, no forced
-+     * NUL-termination) for the callers in nv-modeset-kernel.o.
++     * NUL-termination) for the callers in nveset-kernel.o.
 +     */
 +    size_t i;
 +
@@ -130,10 +130,10 @@ index 96b9946..f3a7646 100644
  }
  
  void nvkms_usleep(NvU64 usec)
-diff --git a/kernel-open/nvidia-uvm/uvm_pmm_gpu.c b/kernel-open-mod/nvidia-uvm/uvm_pmm_gpu.c
+diff --git a/kernel-open/nvidia-uvm/uvm_pmm_gpu.c b/kernel-open/nvidia-uvm/uvm_pmm_gpu.c
 index 373eca9..8664227 100644
 --- a/kernel-open/nvidia-uvm/uvm_pmm_gpu.c
-+++ b/kernel-open-mod/nvidia-uvm/uvm_pmm_gpu.c
++++ b/kernel-open/nvidia-uvm/uvm_pmm_gpu.c
 @@ -2806,7 +2806,7 @@ static NV_STATUS init_chunk_split_cache_level(uvm_pmm_gpu_t *pmm, size_t level)
              size_t size;
              size_t align;
